@@ -11,22 +11,20 @@ def multiplica(num1, num2):
 	return num1*num2
 
 def divide(num1,num2):
-	try:		
+	try: #Captura o control de excepción	 		
 		return num1/num2
 	except ZeroDivisionError:
 		print("No se puede dividir entre cero")
 		return "Operación errónea"
+while True:
+	try:
+		op1=(int(input("Introduce el primer número: ")))
+		op2=(int(input("Introduce el segundo número: ")))		
+		break;
+	except ValueError:
+		print("Los valores introducidos no son los correctos. Inténtelo de nuevo")
 
-#Captura o control de excepción	
 
-try:
-	op1=(int(input("Introduce el primer número: ")))
-except ValueError:
-	print("No ha introducido un número. Vuelva a intentarlo.")
-	op1=(int(input("Introduce el primer número: ")))
-
-op2=(int(input("Introduce el segundo número: ")))		
-	
 operacion=input("Introduce la operación a realizar (suma,resta,multiplica,divide): ")
 
 if operacion=="suma":
