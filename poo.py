@@ -60,4 +60,4 @@ print(miCoche2.arrancar(False))
 miCoche2.__ruedas=2 #Modificamos el estado de la propiedad, pero como está encapsulada, no tiene efecto. 
 miCoche2.__anchoChasis=2000
 miCoche2.estado()
-print(miCoche2.__chequeo_interno())
+print(miCoche2.__chequeo_interno()) #Al llamar a este método nos dará error porque lo estamos llamando desde fuera de la clase.
