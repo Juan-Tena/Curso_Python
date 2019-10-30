@@ -38,8 +38,9 @@ class Moto(Vehiculo): #Al poner dentro de los paréntesis la clase, le decimos q
 			"\nAcelerando: ", self.acelera, "\nFrenando: ", self.frena, "\n", self.hcaballito)
 
 
-class VElectricos():
-	def __init__(self):
+class VElectricos(Vehiculo):
+	def __init__(self, marca, modelo):
+		super().__init__(marca, modelo)
 		self.autonomia=100
 	def cargarEnergia(self):
 		self.cargando=True
@@ -69,9 +70,13 @@ print("--------------------")
 class BicicletaElectrica(VElectricos, Vehiculo):  #Herencia múltiple
 	pass
 
-mibici=BicicletaElectrica()
+mibici=BicicletaElectrica("Orbea", "Xk100")
 #Este objeto de tipo BicicletaElectrica hereda del constructor que está situado en primer lugar, en este caso, VElectricos
 #   por lo tanto, no es necesario introducir ningún argumento al crear la instancia de clase "mibici".
+#   Si queremos que herede de otra clase, tendremos que utilizar la función super()
+
+
 
 # Sobre escritura de métodos
 # Herencia simple y multiple 
+# dos funciones: super isinstance --> ver fichero "Herecia_super.py"
