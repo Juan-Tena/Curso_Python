@@ -1,3 +1,3 @@
 Estupendo día para estudiar Python 
-el mércoles
+Esta linea ha sido incluida desde el exterior 
 lo cual siempre es una buena ocasión para estudiar python
