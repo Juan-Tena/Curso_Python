@@ -6,6 +6,11 @@ miFrame=Frame(raiz)
 
 miFrame.pack()
 
+operacion=""
+
+resultado=0
+
+
 #------Pantalla----------
 
 numeroPantalla=StringVar()
@@ -17,7 +22,28 @@ pantalla.config(background="black",fg='#03f943',justify="right")
 
 #-----Pulsaciones teclado----------
 def numeroPulsado(num):
-	numeroPantalla.set(numeroPantalla.get()+num)
+	global operacion
+	if operacion!="":
+		numeroPantalla.set(num)
+		operacion=""
+	else:
+		numeroPantalla.set(numeroPantalla.get()+num)
+
+#-----Funcion suma----------------
+def suma(num):
+	global operacion
+	global resultado
+	resultado+=int(num)
+	operacion="suma"
+	numeroPantalla.set(resultado)
+
+#-----Función el_resultado--------	
+def el_resultado():
+	global resultado
+	numeroPantalla.set(resultado+int(numeroPantalla.get()))
+	resultado=0
+
+
 
 #-----Fila 1-------------
 boton7=Button(miFrame,text="7",wid=3,command=lambda:numeroPulsado("7"))
@@ -32,7 +58,7 @@ botonDiv.grid(row=2,column=4)
 #-----Fila 2-------------
 boton4=Button(miFrame,text="4",wid=3,command=lambda:numeroPulsado("4"))
 boton4.grid(row=3,column=1)
-boton5=Button(miFrame,text="5",wid=3,command=lambda:numeroPulsado("3"))
+boton5=Button(miFrame,text="5",wid=3,command=lambda:numeroPulsado("5"))
 boton5.grid(row=3,column=2)
 boton6=Button(miFrame,text="6",wid=3,command=lambda:numeroPulsado("6"))
 boton6.grid(row=3,column=3)
@@ -54,13 +80,13 @@ boton0=Button(miFrame,text="0",wid=3,command=lambda:numeroPulsado("0"))
 boton0.grid(row=5,column=1)
 botonComa=Button(miFrame,text=",",wid=3,command=lambda:numeroPulsado(","))
 botonComa.grid(row=5,column=2)
-botonIgual=Button(miFrame,text="=",wid=3)
+botonIgual=Button(miFrame,text="=",wid=3,command=lambda:el_resultado())
 botonIgual.grid(row=5,column=3)
-botonSuma=Button(miFrame,text="+",wid=3)
+botonSuma=Button(miFrame,text="+",wid=3,command=lambda:suma(numeroPantalla.get()))
 botonSuma.grid(row=5,column=4)
 
 #-----Fila 5-------------
-botonBorrar=Button(miFrame,text="Borrar",wid=3)
+botonBorrar=Button(miFrame,text="Borrar",wid=3,width=20)
 botonBorrar.grid(row=6,column=1,padx=10,pady=10,columnspan=4)
 
 raiz.mainloop()
